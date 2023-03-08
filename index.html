@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Memory Store Interactive App</title>
+  </head>
+  <body>
+    <h1>Memory Store Interactive App</h1>
+    <p>Welcome to the Memory Store Interactive App! Click on each button to learn about the different memory stores.</p>
+
+    <button id="sensory-memory-button">Sensory Memory</button>
+    <button id="short-term-memory-button">Short-Term Memory</button>
+    <button id="long-term-memory-button">Long-Term Memory</button>
+
+    <div id="memory-store-info"></div>
+
+    <script>
+      // Sensory Memory
+      document.getElementById("sensory-memory-button").addEventListener("click", function() {
+        document.getElementById("memory-store-info").innerHTML = "<h2>Sensory Memory</h2><p>Sensory memory is the first stage of memory, where information from the senses is briefly stored for a few seconds. It has a large capacity, but the information is quickly forgotten if it is not attended to.</p>";
+      });
+
+      // Short-Term Memory
+      document.getElementById("short-term-memory-button").addEventListener("click", function() {
+        document.getElementById("memory-store-info").innerHTML = "<h2>Short-Term Memory</h2><p>Short-term memory is the second stage of memory, where information is held for up to 30 seconds. It has a limited capacity of around 7 items, and information is lost if it is not rehearsed or transferred to long-term memory.</p><button id='short-term-memory-quiz'>Take a Quiz</button>";
+        document.getElementById("short-term-memory-quiz").addEventListener("click", function() {
+          var answer = prompt("What is the capacity of short-term memory?");
+          if (answer == 7) {
+            alert("Correct!");
+          } else {
+            alert("Incorrect. The capacity of short-term memory is 7 items.");
+          }
+        });
+      });
+
+      // Long-Term Memory
+      document.getElementById("long-term-memory-button").addEventListener("click", function() {
+        document.getElementById("memory-store-info").innerHTML = "<h2>Long-Term Memory</h2><p>Long-term memory is the third and final stage of memory, where information is stored for a longer period of time. It has an unlimited capacity and information can be retrieved when needed. There are two types of long-term memory: explicit and implicit memory.</p><button id='long-term-memory-game'>Play a Game</button>";
+        document.getElementById("long-term-memory-game").addEventListener("click", function() {
+          alert("Let's play a game to test your long-term memory! I will show you a series of numbers, and you have to repeat them in the correct order. Are you ready?");
+          var numbers = [2, 4, 6, 8];
+          for (var i = 0; i < numbers.length; i++) {
+            var answer = prompt("Please enter the " + (i+1) + "th number:");
+            if (answer == numbers[i]) {
+              alert("Correct!");
+            } else {
+              alert("Incorrect. The " + (i+1) + "th number was " + numbers[i] + ".");
+              break;
+            }
+          }
+          if (i == numbers.length) {
+            alert("Congratulations! You have a good long-term memory.");
+          } else {
+            alert("Sorry, you made a mistake. Better luck next time!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
